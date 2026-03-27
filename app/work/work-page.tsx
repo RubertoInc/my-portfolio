@@ -69,7 +69,7 @@ export function WorkPage() {
             damen r. brar
           </p>
           <p className="max-w-2xl text-base leading-8 text-stone-200/80 md:text-lg">
-            Each project is a special collaboration of beutiful minds. 
+            Each project is a special collaboration of beautiful minds. 
             Scroll to see original work directed, produced, or written by me.
           </p>
         </section>

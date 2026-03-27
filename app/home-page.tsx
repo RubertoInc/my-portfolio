@@ -48,7 +48,7 @@ export function HomePage() {
               Writer / Director
             </p>
             <p className="ml-2 max-w-xl text-base leading-7 text-neutral-200/80 md:ml-1.25 md:text-lg md:leading-8">
-              Executing a vision for the voices often left unheard.
+              Helping tell stories of the underrepresented.
             </p>
           </div>
         </section>

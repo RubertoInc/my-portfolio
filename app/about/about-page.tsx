@@ -86,8 +86,7 @@ export function AboutPage() {
                 and raw authenticity.
               </p>
               <p>
-                His work often explores identity and relationships through a sharp,
-                human lens, finding both the absurd and the honest in how we connect.
+                His work often explores identity and relationships, finding both the absurd and the honest in how we connect.
                 He is passionate about uplifting Queer and BIPOC voices, crafting
                 stories that reflect the nuance, contradiction, and richness of those
                 communities without flattening them into stereotypes.

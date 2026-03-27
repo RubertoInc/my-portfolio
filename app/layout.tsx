@@ -21,6 +21,11 @@ const publicSans = Public_Sans({
 export const metadata: Metadata = {
   title: "Damen R. Brar",
   description: "Writer and director portfolio for Damen R. Brar.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

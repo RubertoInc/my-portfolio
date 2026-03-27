@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   title: "Damen R. Brar",
   description: "Writer and director portfolio for Damen R. Brar.",
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/favicon2.png",
+    shortcut: "/favicon2.png",
+    apple: "/favicon2.png",
   },
 };
 

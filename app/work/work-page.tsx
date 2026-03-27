@@ -43,7 +43,7 @@ export function WorkPage() {
         <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-neutral-950/70 via-neutral-950/35 to-transparent" />
       </div>
 
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-14 pb-10">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-10 pb-10 md:gap-12">
         <MobileHeader className="fixed inset-x-0 top-0 z-30 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 text-sm uppercase tracking-[0.3em] text-stone-300/80 [text-shadow:0_2px_10px_rgba(0,0,0,0.52)] md:left-1/2 md:top-6 md:z-40 md:w-[calc(100%-5rem)] md:-translate-x-1/2 md:px-0 md:py-0">
           <p>Selected Work</p>
           <nav className="flex items-center gap-4 md:gap-6">
@@ -75,12 +75,12 @@ export function WorkPage() {
           </p>
         </section>
 
-        <nav className="sticky top-20 z-20 flex flex-wrap gap-3 pt-2 text-xs uppercase tracking-[0.3em] text-stone-300/75 md:top-20">
+        <nav className="sticky top-20 z-20 -mt-2 flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] text-stone-300/75 md:top-20">
           {sectionLinks.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 transition-colors hover:bg-white/10 hover:text-stone-50"
+              className="rounded-full border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.04))] px-4 py-2 text-stone-200/82 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_10px_24px_rgba(0,0,0,0.18)] transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:border-white/18 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.06))] hover:text-stone-50 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_14px_30px_rgba(0,0,0,0.22)] active:translate-y-px"
             >
               {item.label}
             </a>

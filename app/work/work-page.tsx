@@ -80,7 +80,7 @@ export function WorkPage() {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.04))] px-4 py-2 text-stone-200/82 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_10px_24px_rgba(0,0,0,0.18)] transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:border-white/18 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0.06))] hover:text-stone-50 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_14px_30px_rgba(0,0,0,0.22)] active:translate-y-px"
+              className="rounded-[1.1rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.11),rgba(255,255,255,0.035))] px-4 py-[0.6rem] text-stone-200/82 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.16),0_8px_18px_rgba(0,0,0,0.16)] transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:border-white/18 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.05))] hover:text-stone-50 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_-1px_0_rgba(0,0,0,0.18),0_12px_24px_rgba(0,0,0,0.2)] active:translate-y-px"
             >
               {item.label}
             </a>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { MobileHeader } from "../mobile-header";
 import { MusicVideoGrid } from "./music-video-grid";
 
 const sectionLinks = [
@@ -43,7 +44,7 @@ export function WorkPage() {
       </div>
 
       <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-14 pb-10">
-        <header className="flex items-center justify-between text-sm uppercase tracking-[0.3em] text-stone-300/80">
+        <MobileHeader className="fixed inset-x-0 top-0 z-30 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 text-sm uppercase tracking-[0.3em] text-stone-300/80 [text-shadow:0_2px_10px_rgba(0,0,0,0.52)] md:left-1/2 md:top-6 md:z-40 md:w-[calc(100%-5rem)] md:-translate-x-1/2 md:px-0 md:py-0">
           <p>Selected Work</p>
           <nav className="flex items-center gap-4 md:gap-6">
             <Link
@@ -59,9 +60,9 @@ export function WorkPage() {
               Home
             </Link>
           </nav>
-        </header>
+        </MobileHeader>
 
-        <section className="max-w-3xl space-y-2 pt-8 md:pt-14">
+        <section className="max-w-3xl space-y-2 pt-24 md:pt-14">
           <h1 className="text-4xl font-semibold tracking-tight text-stone-50 md:text-6xl">
             Directing Work
           </h1>
@@ -74,7 +75,7 @@ export function WorkPage() {
           </p>
         </section>
 
-        <nav className="sticky top-4 z-20 flex flex-wrap gap-3 pt-2 text-xs uppercase tracking-[0.3em] text-stone-300/75">
+        <nav className="sticky top-20 z-20 flex flex-wrap gap-3 pt-2 text-xs uppercase tracking-[0.3em] text-stone-300/75 md:top-20">
           {sectionLinks.map((item) => (
             <a
               key={item.href}

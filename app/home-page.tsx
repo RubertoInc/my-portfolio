@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { MobileHeader } from "./mobile-header";
 
 const navigation = [
   { href: "/work", label: "Work" },
@@ -22,7 +23,7 @@ export function HomePage() {
       </div>
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-between px-6 py-8 md:px-10 md:py-10">
-        <header className="flex items-center justify-between text-sm uppercase tracking-[0.3em] text-neutral-300/80">
+        <MobileHeader className="fixed inset-x-0 top-0 z-30 mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 text-sm uppercase tracking-[0.3em] text-neutral-300/80 [text-shadow:0_2px_10px_rgba(0,0,0,0.52)] md:left-1/2 md:top-6 md:z-40 md:w-[calc(100%-5rem)] md:-translate-x-1/2 md:px-0 md:py-0">
           <p className="text-xs uppercase tracking-[0.35em] text-neutral-300/70">
             Toronto, CANADA
           </p>
@@ -37,7 +38,7 @@ export function HomePage() {
               </Link>
             ))}
           </nav>
-        </header>
+        </MobileHeader>
 
         <section className="flex max-w-4xl flex-1 items-end py-16 md:py-24">
           <div className="space-y-1.5 md:space-y-2">

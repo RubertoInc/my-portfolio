@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { MobileHeader } from "../mobile-header";
 
 function InstagramIcon() {
   return (
@@ -49,7 +50,7 @@ export function AboutPage() {
       </div>
 
       <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-5xl flex-col justify-between gap-12">
-        <header className="flex items-center justify-between text-sm uppercase tracking-[0.3em] text-neutral-300/80">
+        <MobileHeader className="fixed inset-x-0 top-0 z-30 mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4 text-sm uppercase tracking-[0.3em] text-neutral-300/80 [text-shadow:0_2px_10px_rgba(0,0,0,0.52)] md:left-1/2 md:top-6 md:z-40 md:w-[calc(100%-5rem)] md:-translate-x-1/2 md:px-0 md:py-0">
           <p>About</p>
           <nav className="flex items-center gap-4 md:gap-6">
             <Link
@@ -65,39 +66,42 @@ export function AboutPage() {
               Home
             </Link>
           </nav>
-        </header>
+        </MobileHeader>
 
-        <section className="grid gap-8 md:grid-cols-[1.65fr_1fr] md:items-end">
+        <section className="grid gap-8 pt-24 md:grid-cols-[1.65fr_1fr] md:items-end">
           <div className="relative rounded-[2rem] border border-white/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.035)_0%,rgba(255,255,255,0.025)_18%,rgba(255,255,255,0.055)_100%)] p-4 shadow-[0_18px_45px_rgba(0,0,0,0.12)] backdrop-blur-[1px] md:p-6">
             <div className="pointer-events-none absolute inset-0 rounded-[2rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.015)_0%,rgba(255,255,255,0.005)_22%,transparent_38%)]" />
             <div className="relative space-y-2">
-            <h1 className="font-display relative max-w-3xl text-4xl font-black tracking-[-0.05em] text-neutral-50 md:text-6xl">
-              DiR. BRAR
-            </h1>
-            <p className="relative eyebrow text-xs text-amber-200/78">
-              Profile
-            </p>
-            <div className="relative max-w-2xl pt-2 text-base leading-8 text-neutral-200/90 md:text-lg">
-              <div className="mb-4 h-px w-28 bg-[linear-gradient(90deg,rgba(255,255,255,0.38),rgba(255,255,255,0.14)_55%,transparent)] shadow-[0_1px_10px_rgba(255,255,255,0.08)]" />
-              <div className="space-y-4">
-              <p>
-                Damen is a Toronto-based director seeking to creat bold,
-                character-driven stories that strike the balance between technical perfection
-                and raw authenticity.
+              <h1 className="font-display relative max-w-3xl text-4xl font-black tracking-[-0.05em] text-neutral-50 md:text-6xl">
+                DiR. BRAR
+              </h1>
+              <p className="relative eyebrow text-xs text-amber-200/78">
+                Profile
               </p>
-              <p>
-                His work often explores identity and relationships, finding both the absurd and the honest in how we connect.
-                He is passionate about uplifting Queer and BIPOC voices, crafting
-                stories that reflect the nuance, contradiction, and richness of those
-                communities without flattening them into stereotypes.
-              </p>
-              <p>
-                With a background in post production and digital imaging, Damen brings a strong
-                technical understanding and visual authorship to his work, making images that serve both emotion
-                and story.
-              </p>
+              <div className="relative max-w-2xl pt-2 text-base leading-8 text-neutral-200/90 md:text-lg">
+                <div className="mb-4 h-px w-28 bg-[linear-gradient(90deg,rgba(255,255,255,0.38),rgba(255,255,255,0.14)_55%,transparent)] shadow-[0_1px_10px_rgba(255,255,255,0.08)]" />
+                <div className="space-y-4">
+                  <p>
+                    Damen is a Toronto-based director seeking to creat bold,
+                    character-driven stories that strike the balance between
+                    technical execution and raw authenticity.
+                  </p>
+                  <p>
+                    His work often explores identity and relationships, finding
+                    both the absurd and the honest in how we connect. He is
+                    passionate about uplifting Queer and BIPOC voices, crafting
+                    stories that reflect the nuance, contradiction, and richness
+                    of those communities without flattening them into
+                    stereotypes.
+                  </p>
+                  <p>
+                    With a background in post production and digital imaging,
+                    Damen brings a strong technical understanding and visual
+                    authorship to his work, making images that serve both
+                    emotion and story.
+                  </p>
+                </div>
               </div>
-            </div>
             </div>
           </div>
 

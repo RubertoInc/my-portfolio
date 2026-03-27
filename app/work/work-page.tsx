@@ -66,10 +66,11 @@ export function WorkPage() {
             Directing Work
           </h1>
           <p className="eyebrow text-xs text-amber-200/70">
-            Scroll to see past Direction
+            damen r. brar
           </p>
           <p className="max-w-2xl text-base leading-8 text-stone-200/80 md:text-lg">
-            Narrative, music, and commercial direction shaped through image and performance.
+            Each project is a special collaboration of beutiful minds. 
+            Scroll to see original work directed, produced, or written by me.
           </p>
         </section>
 
@@ -91,13 +92,13 @@ export function WorkPage() {
         >
           <div className="max-w-3xl space-y-2">
             <h2 className="text-3xl font-semibold tracking-tight text-stone-50 md:text-5xl">
-              Short Film
+              Narrative Work
             </h2>
             <p className="eyebrow text-xs text-amber-200/70">
-              Narrative
+              Written & Directed by: Damen R. Brar
             </p>
             <p className="text-base leading-8 text-stone-200/80 md:text-lg">
-              Original works, Written / Directed by your truly.
+              
             </p>
           </div>
 
@@ -114,7 +115,7 @@ export function WorkPage() {
                   Featured Narrative
                 </p>
                 <h3 className="text-2xl font-semibold tracking-tight text-stone-50 md:text-3xl">
-                  Short Film
+                  a Queer Oner - Short Film
                 </h3>
                 <p className="text-sm leading-7 text-stone-200/80 md:text-base">
                   Trying to reignite the spark in her relationship, Chloe seduces her boyfriend, only to realize
@@ -138,11 +139,10 @@ export function WorkPage() {
               Music Videos
             </h2>
             <p className="eyebrow text-xs text-amber-200/70">
-              Four unique pieces
+              Produced & Directed by: Damen R. Brar
             </p>
             <p className="text-base leading-8 text-stone-200/80 md:text-lg">
-              Each card now pulls in the YouTube title automatically and uses the
-              video thumbnail directly on the page.
+              
             </p>
           </div>
 
@@ -155,14 +155,13 @@ export function WorkPage() {
         >
           <div className="max-w-3xl space-y-2">
             <h2 className="text-3xl font-semibold tracking-tight text-stone-50 md:text-5xl">
-              Coming soon
+              Commercial / Spec
             </h2>
             <p className="eyebrow text-xs text-amber-200/70">
-              Commercial
+              Coming soon...
             </p>
             <p className="text-base leading-8 text-stone-200/80 md:text-lg">
-              This section can stay lighter for now until there are specs or finished
-              projects worth featuring.
+              More to come. Give me a call, this could be your brand!
             </p>
           </div>
         </section>

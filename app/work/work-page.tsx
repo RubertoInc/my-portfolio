@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MobileHeader } from "../mobile-header";
 import { MusicVideoGrid } from "./music-video-grid";
+import { narrativeProjects } from "./narrative-projects";
 
 const sectionLinks = [
   { href: "#narrative", label: "Narrative" },
@@ -37,6 +38,8 @@ const musicVideoProjects = [
     thumbnailSrc: "/ChooseU-Thumbnail.png",
   },
 ];
+
+const featuredNarrativeProject = narrativeProjects[0];
 
 export function WorkPage() {
   return (
@@ -113,29 +116,57 @@ export function WorkPage() {
             </p>
           </div>
 
-          <article className="mt-7 overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/20">
-            <div className="flex h-64 w-full items-center justify-center bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015))] md:h-80">
-              <p className="text-3xl font-semibold tracking-[-0.04em] text-stone-100/90 md:text-5xl">
-                Coming soon...
-              </p>
-            </div>
-
-            <div className="flex flex-col justify-between gap-6 p-5 md:flex-row md:items-end md:p-6">
-              <div className="max-w-2xl space-y-2">
-                <p className="eyebrow text-[11px] text-amber-200/80">
-                  Featured Narrative
-                </p>
-                <h3 className="text-2xl font-semibold tracking-tight text-stone-50 md:text-3xl">
-                  "PEGGED" | a Short Film
-                </h3>
-                <p className="text-sm leading-7 text-stone-200/80 md:text-base">
-                  Trying to reignite the spark in her relationship, Chloe seduces her boyfriend, only to realize
-                  the reason it died in the first place might already be in the room with them...
-                </p>
+          {/* Re-link this card to `/work/${featuredNarrativeProject.slug}` when the public project page is ready. */}
+          <article
+            className="mt-7 block overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/20"
+          >
+            <div className="grid gap-5 p-5 md:grid-cols-[220px_minmax(0,1fr)] md:items-center md:gap-8 md:p-6">
+              <div className="overflow-hidden rounded-[1.4rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015))] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
+                <div className="relative aspect-[2/3] w-full">
+                  {featuredNarrativeProject.posterSrc ? (
+                    <Image
+                      src={featuredNarrativeProject.posterSrc}
+                      alt={featuredNarrativeProject.posterNote}
+                      fill
+                      className="object-cover opacity-55"
+                      sizes="(min-width: 768px) 220px, 100vw"
+                    />
+                  ) : null}
+                  <div className="absolute inset-0 bg-black/35" />
+                  <div className="absolute inset-x-0 top-0 flex h-1/4 items-center justify-center p-6 text-center text-sm uppercase tracking-[0.22em] text-stone-100/85">
+                    Poster Coming Soon
+                  </div>
+                </div>
               </div>
 
-              <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm uppercase tracking-[0.18em] text-stone-200/75">
-                Vimeo Coming Soon
+              <div className="flex flex-col gap-4">
+                <div className="space-y-2">
+                  <p className="eyebrow text-[11px] text-amber-200/80">
+                    Featured Narrative
+                  </p>
+                  <h3 className="text-3xl font-semibold tracking-[-0.04em] text-stone-50 md:text-5xl">
+                    {featuredNarrativeProject.title}
+                  </h3>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-stone-300/72">
+                  <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
+                    {featuredNarrativeProject.format}
+                  </span>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
+                    {featuredNarrativeProject.status}
+                  </span>
+                </div>
+
+                <p className="max-w-3xl text-base leading-8 text-stone-100/90 md:text-lg">
+                  {featuredNarrativeProject.logline}
+                </p>
+
+                <div className="pt-1">
+                  <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-100/80">
+                    Project Page Coming Soon
+                  </span>
+                </div>
               </div>
             </div>
           </article>

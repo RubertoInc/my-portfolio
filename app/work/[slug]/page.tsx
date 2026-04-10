@@ -14,15 +14,18 @@ export default async function NarrativeProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = getNarrativeProject(slug);
 
   // Temporarily keep narrative project detail pages private. Re-enable this
   // when `/work` cards should link through to the full film pages.
-  notFound();
+  if (slug === "pegged") {
+    notFound();
+  }
 
+  const project = getNarrativeProject(slug);
   if (!project) {
     notFound();
   }
+  const narrativeProject = project;
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-neutral-950 px-6 py-8 text-stone-100 md:px-10">
@@ -30,7 +33,7 @@ export default async function NarrativeProjectPage({
 
       <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-10 pb-12">
         <MobileHeader className="fixed inset-x-0 top-0 z-30 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 text-sm uppercase tracking-[0.3em] text-stone-300/80 [text-shadow:0_2px_10px_rgba(0,0,0,0.52)] md:left-1/2 md:top-6 md:z-40 md:w-[calc(100%-5rem)] md:-translate-x-1/2 md:px-0 md:py-0">
-          <p>{project.title}</p>
+          <p>{narrativeProject.title}</p>
           <nav className="flex items-center gap-4 md:gap-6">
             <Link
               href="/work"
@@ -53,18 +56,18 @@ export default async function NarrativeProjectPage({
               Narrative Project
             </p>
             <h1 className="text-4xl font-semibold tracking-[-0.05em] text-stone-50 md:text-7xl">
-              {project.title}
+              {narrativeProject.title}
             </h1>
             <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.22em] text-stone-300/75">
               <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
-                {project.format}
+                {narrativeProject.format}
               </span>
               <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
-                {project.status}
+                {narrativeProject.status}
               </span>
             </div>
             <p className="max-w-4xl text-base leading-8 text-stone-200/82 md:text-lg">
-              {project.logline}
+              {narrativeProject.logline}
             </p>
           </div>
         </section>
@@ -73,27 +76,29 @@ export default async function NarrativeProjectPage({
           <div className="space-y-6">
             <div className="overflow-hidden rounded-[1.8rem] border border-white/10 bg-black/20">
               <div className="relative aspect-[16/7] bg-[radial-gradient(circle_at_18%_18%,rgba(245,158,11,0.16),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))]">
-                {project.heroStillSrc ? (
+                {narrativeProject.heroStillSrc ? (
                   <Image
-                    src={project.heroStillSrc}
-                    alt={project.heroStillNote}
+                    src={narrativeProject.heroStillSrc}
+                    alt={narrativeProject.heroStillNote}
                     fill
-                    className={project.heroStillClassName ?? "object-cover"}
+                    className={
+                      narrativeProject.heroStillClassName ?? "object-cover"
+                    }
                     sizes="(min-width: 768px) 66vw, 100vw"
                   />
                 ) : null}
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.18)_52%,rgba(0,0,0,0.58))]" />
-                {!project.heroStillSrc ? (
+                {!narrativeProject.heroStillSrc ? (
                   <div className="absolute inset-0 flex items-center justify-center px-8 text-center">
                     <p className="max-w-lg text-sm uppercase tracking-[0.24em] text-stone-300/72">
-                      {project.heroStillNote}
+                      {narrativeProject.heroStillNote}
                     </p>
                   </div>
                 ) : null}
                 <div className="absolute inset-x-0 bottom-0 flex justify-end px-5 py-5 md:px-6 md:py-6">
-                  {project.vimeoUrl ? (
+                  {narrativeProject.vimeoUrl ? (
                     <a
-                      href={project.vimeoUrl}
+                      href={narrativeProject.vimeoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex rounded-full border border-white/12 bg-black/35 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-100/85 backdrop-blur-sm transition-colors hover:border-amber-200/35 hover:text-amber-100"
@@ -113,7 +118,7 @@ export default async function NarrativeProjectPage({
               <div className="space-y-3">
                 <p className="eyebrow text-[11px] text-amber-200/80">Synopsis</p>
                 <p className="max-w-3xl text-sm leading-8 text-stone-200/82 md:text-base">
-                  {project.synopsis}
+                  {narrativeProject.synopsis}
                 </p>
               </div>
             </div>
@@ -129,7 +134,7 @@ export default async function NarrativeProjectPage({
               </div>
 
               <div className="mt-5 grid gap-4 md:grid-cols-3">
-                {project.cast.map((member) => (
+                {narrativeProject.cast.map((member) => (
                   <article
                     key={`${member.character}-${member.actorName}`}
                     className="overflow-hidden rounded-[1.35rem] border border-white/10 bg-black/20"
@@ -200,7 +205,7 @@ export default async function NarrativeProjectPage({
               </div>
 
               <div className="mt-5 grid gap-3 md:grid-cols-3">
-                {project.galleryNotes.map((note) => (
+                {narrativeProject.galleryNotes.map((note) => (
                   <div
                     key={note}
                     className="flex aspect-[16/10] items-center justify-center rounded-[1.25rem] border border-dashed border-white/12 bg-black/20 px-4 text-center text-[11px] uppercase tracking-[0.2em] text-stone-400"
@@ -218,7 +223,7 @@ export default async function NarrativeProjectPage({
                 <div className="space-y-2 px-4">
                   <p className="eyebrow text-[11px] text-amber-200/80">Poster</p>
                   <p className="text-sm uppercase tracking-[0.22em] text-stone-300/72">
-                    {project.posterNote}
+                    {narrativeProject.posterNote}
                   </p>
                 </div>
               </div>
@@ -229,7 +234,7 @@ export default async function NarrativeProjectPage({
                 <div>
                   <p className="eyebrow text-[11px] text-amber-200/80">Crew</p>
                   <div className="mt-2 space-y-2 text-sm leading-7 text-stone-200/82">
-                    {project.crew.map((credit) => (
+                    {narrativeProject.crew.map((credit) => (
                       <p key={credit}>{credit}</p>
                     ))}
                   </div>

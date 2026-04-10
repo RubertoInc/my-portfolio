@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 type MusicVideoProject = {
   fallbackTitle: string;
   href: string;
+  artistName?: string;
+  thumbnailSrc?: string;
+  thumbnailClassName?: string;
 };
 
 type VideoCardProps = {
@@ -31,41 +33,11 @@ function extractYouTubeVideoId(href: string) {
 }
 
 function VideoCard({ project }: VideoCardProps) {
-  const [title, setTitle] = useState(project.fallbackTitle);
+  const title = project.fallbackTitle;
   const videoId = extractYouTubeVideoId(project.href);
-  const thumbnailSrc = videoId
-    ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
-    : null;
-
-  useEffect(() => {
-    let isCancelled = false;
-
-    async function loadTitle() {
-      try {
-        const response = await fetch(
-          `https://www.youtube.com/oembed?url=${encodeURIComponent(project.href)}&format=json`,
-        );
-
-        if (!response.ok) {
-          return;
-        }
-
-        const data = (await response.json()) as { title?: string };
-
-        if (!isCancelled && data.title) {
-          setTitle(data.title);
-        }
-      } catch {
-        // Keep the fallback title when YouTube metadata is unavailable.
-      }
-    }
-
-    void loadTitle();
-
-    return () => {
-      isCancelled = true;
-    };
-  }, [project.href]);
+  const thumbnailSrc =
+    project.thumbnailSrc ??
+    (videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : null);
 
   return (
     <article className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/20">
@@ -81,7 +53,7 @@ function VideoCard({ project }: VideoCardProps) {
               src={thumbnailSrc}
               alt={title}
               fill
-              className="object-cover"
+              className={project.thumbnailClassName ?? "object-cover"}
               sizes="(min-width: 768px) 50vw, 100vw"
             />
           </div>
@@ -94,7 +66,7 @@ function VideoCard({ project }: VideoCardProps) {
         <div className="flex min-h-36 flex-col justify-between p-5">
           <div className="space-y-2">
             <p className="eyebrow text-[11px] font-medium text-amber-200/85">
-              YouTube
+              {project.artistName ?? "YouTube"}
             </p>
             <h3 className="text-[1.65rem] font-semibold leading-tight tracking-[-0.03em] text-stone-50">
               {title}

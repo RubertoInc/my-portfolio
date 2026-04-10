@@ -11,20 +11,30 @@ const sectionLinks = [
 
 const musicVideoProjects = [
   {
-    fallbackTitle: "Music Video 01",
+    fallbackTitle: "KEY - Official Music Video",
     href: "https://www.youtube.com/watch?v=9lj7zQBqVlA",
+    artistName: "Akila & The Wonder Machine",
+    thumbnailSrc: "/KEY-thumbnail-5.png",
+    thumbnailClassName: "object-cover object-[75%_30%]",
   },
   {
-    fallbackTitle: "Music Video 02",
+    fallbackTitle: "Sorry Dad - Official Music Video",
     href: "https://www.youtube.com/watch?v=UZQCQbN6h9w&list=RDUZQCQbN6h9w&start_radio=1",
+    artistName: "Angie Khoury",
+    thumbnailSrc: "/SorryDad-thumbnail.png",
+    thumbnailClassName: "object-cover object-[50%_25%]",
   },
   {
-    fallbackTitle: "Music Video 03",
+    fallbackTitle: "The Devil - Official Music Video",
     href: "https://www.youtube.com/watch?v=NB4mljuVgts",
+    artistName: "Akila & The Wonder Machine",
+    thumbnailSrc: "/TheDevil-thumbnail_v2.png",
   },
   {
-    fallbackTitle: "Music Video 04",
+    fallbackTitle: "Choose U - Official Music Video",
     href: "https://www.youtube.com/watch?v=RTdYtzv-wwI&list=RDRTdYtzv-wwI&start_radio=1",
+    artistName: "Jacob Hayden",
+    thumbnailSrc: "/ChooseU-Thumbnail.png",
   },
 ];
 
@@ -116,7 +126,7 @@ export function WorkPage() {
                   Featured Narrative
                 </p>
                 <h3 className="text-2xl font-semibold tracking-tight text-stone-50 md:text-3xl">
-                  a Queer Oner - Short Film
+                  "PEGGED" | a Short Film
                 </h3>
                 <p className="text-sm leading-7 text-stone-200/80 md:text-base">
                   Trying to reignite the spark in her relationship, Chloe seduces her boyfriend, only to realize

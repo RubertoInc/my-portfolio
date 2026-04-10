@@ -82,7 +82,7 @@ export function AboutPage() {
                 <div className="mb-4 h-px w-28 bg-[linear-gradient(90deg,rgba(255,255,255,0.38),rgba(255,255,255,0.14)_55%,transparent)] shadow-[0_1px_10px_rgba(255,255,255,0.08)]" />
                 <div className="space-y-4">
                   <p>
-                    Damen is a Toronto-based director seeking to creat bold,
+                    Damen is a Pubjabi-Italian, Tkaronto-based director seeking to create bold,
                     character-driven stories that strike the balance between
                     technical execution and raw authenticity.
                   </p>

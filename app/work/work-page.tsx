@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { MobileHeader } from "../mobile-header";
 import { MusicVideoGrid } from "./music-video-grid";
-import { narrativeProjects } from "./narrative-projects";
+import { musicVideoProjects } from "./music-video-projects";
+import { NarrativeProjectCard } from "./narrative-project-card";
+import { getFeaturedNarrativeProject } from "./narrative-projects";
 
 const sectionLinks = [
   { href: "#narrative", label: "Narrative" },
@@ -10,36 +12,7 @@ const sectionLinks = [
   { href: "#commercial", label: "Commercial" },
 ];
 
-const musicVideoProjects = [
-  {
-    fallbackTitle: "KEY - Official Music Video",
-    href: "https://www.youtube.com/watch?v=9lj7zQBqVlA",
-    artistName: "Akila & The Wonder Machine",
-    thumbnailSrc: "/KEY-thumbnail-5.png",
-    thumbnailClassName: "object-cover object-[75%_30%]",
-  },
-  {
-    fallbackTitle: "Sorry Dad - Official Music Video",
-    href: "https://www.youtube.com/watch?v=UZQCQbN6h9w&list=RDUZQCQbN6h9w&start_radio=1",
-    artistName: "Angie Khoury",
-    thumbnailSrc: "/SorryDad-thumbnail.png",
-    thumbnailClassName: "object-cover object-[50%_25%]",
-  },
-  {
-    fallbackTitle: "The Devil - Official Music Video",
-    href: "https://www.youtube.com/watch?v=NB4mljuVgts",
-    artistName: "Akila & The Wonder Machine",
-    thumbnailSrc: "/TheDevil-thumbnail_v2.png",
-  },
-  {
-    fallbackTitle: "Choose U - Official Music Video",
-    href: "https://www.youtube.com/watch?v=RTdYtzv-wwI&list=RDRTdYtzv-wwI&start_radio=1",
-    artistName: "Jacob Hayden",
-    thumbnailSrc: "/ChooseU-Thumbnail.png",
-  },
-];
-
-const featuredNarrativeProject = narrativeProjects[0];
+const featuredNarrativeProject = getFeaturedNarrativeProject();
 
 export function WorkPage() {
   return (
@@ -111,65 +84,9 @@ export function WorkPage() {
             <p className="eyebrow text-xs text-amber-200/70">
               Written & Directed by: Damen R. Brar
             </p>
-            <p className="text-base leading-8 text-stone-200/80 md:text-lg">
-              
-            </p>
           </div>
 
-          {/* Re-link this card to `/work/${featuredNarrativeProject.slug}` when the public project page is ready. */}
-          <article
-            className="mt-7 block overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/20"
-          >
-            <div className="grid gap-5 p-5 md:grid-cols-[220px_minmax(0,1fr)] md:items-center md:gap-8 md:p-6">
-              <div className="overflow-hidden rounded-[1.4rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015))] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
-                <div className="relative aspect-[2/3] w-full">
-                  {featuredNarrativeProject.posterSrc ? (
-                    <Image
-                      src={featuredNarrativeProject.posterSrc}
-                      alt={featuredNarrativeProject.posterNote}
-                      fill
-                      className="object-cover opacity-55"
-                      sizes="(min-width: 768px) 220px, 100vw"
-                    />
-                  ) : null}
-                  <div className="absolute inset-0 bg-black/35" />
-                  <div className="absolute inset-x-0 top-0 flex h-1/4 items-center justify-center p-6 text-center text-sm uppercase tracking-[0.22em] text-stone-100/85">
-                    Poster Coming Soon
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <div className="space-y-2">
-                  <p className="eyebrow text-[11px] text-amber-200/80">
-                    Featured Narrative
-                  </p>
-                  <h3 className="text-3xl font-semibold tracking-[-0.04em] text-stone-50 md:text-5xl">
-                    {featuredNarrativeProject.title}
-                  </h3>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-stone-300/72">
-                  <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
-                    {featuredNarrativeProject.format}
-                  </span>
-                  <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
-                    {featuredNarrativeProject.status}
-                  </span>
-                </div>
-
-                <p className="max-w-3xl text-base leading-8 text-stone-100/90 md:text-lg">
-                  {featuredNarrativeProject.logline}
-                </p>
-
-                <div className="pt-1">
-                  <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-100/80">
-                    Project Page Coming Soon
-                  </span>
-                </div>
-              </div>
-            </div>
-          </article>
+          <NarrativeProjectCard project={featuredNarrativeProject} />
         </section>
 
         <section
@@ -182,9 +99,6 @@ export function WorkPage() {
             </h2>
             <p className="eyebrow text-xs text-amber-200/70">
               Produced & Directed by: Damen R. Brar
-            </p>
-            <p className="text-base leading-8 text-stone-200/80 md:text-lg">
-              
             </p>
           </div>
 

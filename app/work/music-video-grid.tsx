@@ -1,14 +1,7 @@
 "use client";
 
 import Image from "next/image";
-
-type MusicVideoProject = {
-  fallbackTitle: string;
-  href: string;
-  artistName?: string;
-  thumbnailSrc?: string;
-  thumbnailClassName?: string;
-};
+import type { MusicVideoProject } from "./music-video-projects";
 
 type VideoCardProps = {
   project: MusicVideoProject;

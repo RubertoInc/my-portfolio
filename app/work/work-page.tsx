@@ -61,12 +61,12 @@ export function WorkPage() {
           </p>
         </section>
 
-        <nav className="sticky top-20 z-20 -mt-2 flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] text-stone-300/75 md:top-20">
+        <nav className="sticky top-20 z-20 -mt-2 flex flex-wrap gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-300/75 md:top-20 md:text-[11px]">
           {sectionLinks.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-[1.1rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.11),rgba(255,255,255,0.035))] px-4 py-[0.6rem] text-stone-200/82 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.16),0_8px_18px_rgba(0,0,0,0.16)] transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:border-white/18 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.05))] hover:text-stone-50 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_-1px_0_rgba(0,0,0,0.18),0_12px_24px_rgba(0,0,0,0.2)] active:translate-y-px"
+              className="rounded-xl border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.11),rgba(255,255,255,0.035))] px-3 py-2 text-stone-200/82 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.16),0_8px_18px_rgba(0,0,0,0.16)] transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:border-white/18 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.05))] hover:text-stone-50 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_-1px_0_rgba(0,0,0,0.18),0_12px_24px_rgba(0,0,0,0.2)] active:translate-y-px"
             >
               {item.label}
             </a>

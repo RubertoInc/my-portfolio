@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { NarrativeProjectPoster } from "./narrative-project-poster";
 import type { NarrativeProject } from "./narrative-projects";
+import { StillGallery } from "./still-gallery";
+import { VideoGateButton } from "./video-gate-button";
 
 type NarrativeProjectDetailProps = {
   project: NarrativeProject;
@@ -12,25 +14,42 @@ type NarrativeProjectSectionProps = {
 
 export function NarrativeProjectDetail({ project }: NarrativeProjectDetailProps) {
   return (
-    <section className="grid gap-6 md:grid-cols-[1.5fr_0.7fr]">
-      <div className="space-y-6">
-        <HeroStill project={project} />
+    <section className="grid gap-4 md:grid-cols-[1.5fr_0.7fr] md:gap-6">
+      <div className="order-1 md:hidden">
         <SynopsisBlock project={project} />
-        <CastGallery project={project} />
-        <StillGallery project={project} />
       </div>
 
-      <aside className="space-y-6">
+      <aside className="order-2 space-y-4 md:space-y-6">
         <PosterPlaceholder project={project} />
-        <CrewBlock project={project} />
+        {project.videoUrl ? (
+          <div className="flex justify-center md:hidden">
+            <VideoGateButton videoUrl={project.videoUrl} />
+          </div>
+        ) : null}
+        <div className="hidden md:block">
+          <CrewBlock project={project} />
+        </div>
       </aside>
+
+      <div className="order-3 space-y-6 md:order-1">
+        <HeroStill project={project} />
+        <div className="hidden md:block">
+          <SynopsisBlock project={project} />
+        </div>
+        <CastGallery project={project} />
+        <StillGallery galleryImages={project.galleryImages} />
+      </div>
+
+      <div className="order-4 md:hidden">
+        <CrewBlock project={project} />
+      </div>
     </section>
   );
 }
 
 function HeroStill({ project }: NarrativeProjectSectionProps) {
   return (
-    <div className="overflow-hidden rounded-[1.8rem] border border-white/10 bg-black/20">
+    <div className="hidden overflow-hidden rounded-[1.8rem] border border-white/10 bg-black/20 md:block">
       <div className="relative aspect-[16/7] bg-[radial-gradient(circle_at_18%_18%,rgba(245,158,11,0.16),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))]">
         {project.heroStillSrc ? (
           <Image
@@ -49,16 +68,9 @@ function HeroStill({ project }: NarrativeProjectSectionProps) {
             </p>
           </div>
         ) : null}
-        <div className="absolute inset-x-0 bottom-0 flex justify-end px-5 py-5 md:px-6 md:py-6">
+        <div className="flex justify-end bg-black/25 px-4 py-4 md:absolute md:inset-x-0 md:bottom-0 md:bg-transparent md:px-6 md:py-6">
           {project.videoUrl ? (
-            <a
-              href={project.videoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex rounded-full border border-white/12 bg-black/35 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-100/85 backdrop-blur-sm transition-colors hover:border-amber-200/35 hover:text-amber-100"
-            >
-              Watch on YouTube
-            </a>
+            <VideoGateButton videoUrl={project.videoUrl} />
           ) : (
             <span className="inline-flex rounded-full border border-white/12 bg-black/35 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-100/75 backdrop-blur-sm">
               Video Coming Soon
@@ -75,7 +87,7 @@ function SynopsisBlock({ project }: NarrativeProjectSectionProps) {
     <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.05] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.22)]">
       <div className="space-y-3">
         <p className="eyebrow text-[11px] text-amber-200/80">Synopsis</p>
-        <p className="max-w-3xl text-sm leading-8 text-stone-200/82 md:text-base">
+        <p className="max-w-3xl text-sm leading-6 text-stone-300/75 md:text-base md:leading-7 md:text-stone-200/82">
           {project.synopsis}
         </p>
       </div>
@@ -85,107 +97,78 @@ function SynopsisBlock({ project }: NarrativeProjectSectionProps) {
 
 function CastGallery({ project }: NarrativeProjectSectionProps) {
   return (
-    <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.05] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.22)]">
+    <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.05] p-4 shadow-[0_24px_70px_rgba(0,0,0,0.22)] md:p-6">
       <div className="flex items-center justify-between gap-4">
         <div className="space-y-1">
           <p className="eyebrow text-[11px] text-amber-200/80">Cast</p>
           <p className="text-sm text-stone-300/75">
             Starring Brennan Clost (Tiny Pretty Things), Cecilia Lee (Star Trek: Starfleet Academy), and Kaden Connors (Heated Rivalry)
-            Pegged is packed with some of Canada's most compelling young talents and Queer advocates are locked in one room, with nowhere to hide.
+            Pegged is packed with some of Canada&apos;s most compelling young talents and Queer advocates are locked in one room, with nowhere to hide.
           </p>
         </div>
       </div>
 
-      <div className="mt-5 grid gap-4 md:grid-cols-3">
-        {project.cast.map((member) => (
-          <article
-            key={`${member.character}-${member.actorName}`}
-            className="overflow-hidden rounded-[1.35rem] border border-white/10 bg-black/20"
-          >
-            <div className="relative aspect-[4/5]">
-              {member.headshotSrc ? (
-                <Image
-                  src={member.headshotSrc}
-                  alt={`${member.actorName} headshot`}
-                  fill
-                  className="object-cover object-top"
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.14),transparent_35%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015))] p-6 text-center">
-                  <div className="space-y-2">
-                    <p className="eyebrow text-[11px] text-amber-200/75">
-                      Headshot
-                    </p>
-                    <p className="text-xs uppercase tracking-[0.22em] text-stone-300/70">
-                      Replace with film portrait later
-                    </p>
+      <div className="mt-5 grid gap-3 md:grid-cols-3 md:gap-4">
+        {project.cast.map((member) => {
+          const cardContent = (
+            <>
+              <div className="relative min-h-24 overflow-hidden md:aspect-[4/5] md:min-h-0">
+                {member.headshotSrc ? (
+                  <Image
+                    src={member.headshotSrc}
+                    alt={`${member.actorName} headshot`}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.14),transparent_35%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015))] p-6 text-center">
+                    <div className="space-y-2">
+                      <p className="eyebrow text-[11px] text-amber-200/75">
+                        Headshot
+                      </p>
+                      <p className="text-xs uppercase tracking-[0.22em] text-stone-300/70">
+                        Replace with film portrait later
+                      </p>
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
 
-            <div className="space-y-2 p-4">
-              <p className="text-[11px] uppercase tracking-[0.22em] text-stone-400">
-                {member.character}
-              </p>
-              {member.imdbUrl ? (
-                <a
-                  href={member.imdbUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-lg font-semibold tracking-tight text-stone-50 transition-colors hover:text-amber-200"
-                >
-                  {member.actorName}
-                </a>
-              ) : (
-                <p className="text-lg font-semibold tracking-tight text-stone-50">
+              <div className="space-y-1.5 p-3 md:space-y-2 md:p-4">
+                <p className="text-[11px] uppercase tracking-[0.22em] text-stone-400">
+                  {member.character}
+                </p>
+                <p className="text-base font-semibold tracking-tight text-stone-50 transition-colors group-hover:text-amber-200 md:text-lg">
                   {member.actorName}
                 </p>
-              )}
-              <p className="text-[11px] uppercase tracking-[0.2em] text-stone-400">
-                {member.imdbUrl ? "Open IMDb" : "Portrait slot"}
-              </p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  );
-}
+                <p className="text-[10px] uppercase tracking-[0.18em] text-stone-400 transition-colors group-hover:text-stone-300 md:text-[11px] md:tracking-[0.2em]">
+                  {member.imdbUrl ? "Open IMDb" : "Portrait slot"}
+                </p>
+              </div>
+            </>
+          );
 
-function StillGallery({ project }: NarrativeProjectSectionProps) {
-  return (
-    <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.05] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.22)]">
-      <div className="flex items-center justify-between gap-4">
-        <div className="space-y-1">
-          <p className="eyebrow text-[11px] text-amber-200/80">
-            BTS / Gallery
-          </p>
-          <p className="text-sm text-stone-300/75">
-            Stills and behind-the-scenes frames from PEGGED.
-          </p>
-        </div>
-        <p className="hidden text-[11px] uppercase tracking-[0.22em] text-stone-400 md:block">
-          Production stills
-        </p>
-      </div>
-
-      <div className="mt-5 grid gap-3 md:grid-cols-3">
-        {project.galleryImages.map((src, index) => (
-          <div
-            key={src}
-            className="relative aspect-[16/10] overflow-hidden rounded-[1.25rem] border border-white/10 bg-black/20"
-          >
-            <Image
-              src={src}
-              alt={`PEGGED production still ${index + 1}`}
-              fill
-              className="object-cover"
-              sizes="(min-width: 768px) 22vw, 100vw"
-            />
-          </div>
-        ))}
+          return member.imdbUrl ? (
+            <a
+              key={`${member.character}-${member.actorName}`}
+              href={member.imdbUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${member.actorName} on IMDb`}
+              className="group grid grid-cols-[5.75rem_minmax(0,1fr)] overflow-hidden rounded-[1.35rem] border border-white/10 bg-black/20 transition-[border-color,background-color] duration-200 hover:border-amber-200/30 hover:bg-white/[0.07] focus:outline-none focus-visible:border-amber-200/50 md:block"
+            >
+              {cardContent}
+            </a>
+          ) : (
+            <article
+              key={`${member.character}-${member.actorName}`}
+              className="group grid grid-cols-[5.75rem_minmax(0,1fr)] overflow-hidden rounded-[1.35rem] border border-white/10 bg-black/20 md:block"
+            >
+              {cardContent}
+            </article>
+          );
+        })}
       </div>
     </div>
   );
@@ -210,7 +193,24 @@ function CrewBlock({ project }: NarrativeProjectSectionProps) {
           <p className="eyebrow text-[11px] text-amber-200/80">Crew</p>
           <div className="mt-2 space-y-2 text-sm leading-7 text-stone-200/82">
             {project.crew.map((credit) => (
-              <p key={credit}>{credit}</p>
+              <p key={`${credit.role}-${credit.name}`}>
+                <span className="font-semibold text-stone-100/90">
+                  {credit.role}
+                </span>
+                {" — "}
+                {credit.url ? (
+                  <a
+                    href={credit.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-amber-200 focus:outline-none focus:text-amber-200"
+                  >
+                    {credit.name}
+                  </a>
+                ) : (
+                  credit.name
+                )}
+              </p>
             ))}
           </div>
         </div>

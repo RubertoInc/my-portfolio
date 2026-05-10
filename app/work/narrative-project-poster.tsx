@@ -11,7 +11,7 @@ export function NarrativeProjectPoster({
   sizes,
 }: NarrativeProjectPosterProps) {
   return (
-    <div className="overflow-hidden rounded-[1.4rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015))] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
+    <div className="overflow-hidden rounded-md border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015))] shadow-[0_18px_40px_rgba(0,0,0,0.2)]">
       <div className="relative aspect-[2/3] w-full">
         {project.posterSrc ? (
           <Image

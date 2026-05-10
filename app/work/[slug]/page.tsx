@@ -25,7 +25,7 @@ export default async function NarrativeProjectPage({
     <main className="relative min-h-screen overflow-hidden bg-neutral-950 px-6 py-8 text-stone-100 md:px-10">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(245,158,11,0.15),_transparent_30%),linear-gradient(180deg,_rgba(255,255,255,0.02),_rgba(255,255,255,0)_30%),linear-gradient(to_bottom,_rgba(10,10,10,0.1),_rgba(10,10,10,0.72))]" />
 
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-10 pb-12">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-5 pb-12 md:gap-10">
         <MobileHeader className="fixed inset-x-0 top-0 z-30 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 text-sm uppercase tracking-[0.3em] text-stone-300/80 [text-shadow:0_2px_10px_rgba(0,0,0,0.52)] md:left-1/2 md:top-6 md:z-40 md:w-[calc(100%-5rem)] md:-translate-x-1/2 md:px-0 md:py-0">
           <p>{narrativeProject.title}</p>
           <nav className="flex items-center gap-4 md:gap-6">
@@ -44,23 +44,25 @@ export default async function NarrativeProjectPage({
           </nav>
         </MobileHeader>
 
-        <section className="pt-24 md:pt-14">
-          <div className="space-y-3">
+        <section className="pt-12 md:pt-14">
+          <div className="space-y-2 md:space-y-3">
             <p className="eyebrow text-xs text-amber-200/75">
               Narrative Project
             </p>
-            <h1 className="text-4xl font-semibold tracking-[-0.05em] text-stone-50 md:text-7xl">
+            <h1 className="font-saddlebag origin-left scale-y-120 text-5xl font-black tracking-normal text-[#ee00a5] md:text-8xl">
               {narrativeProject.title}
             </h1>
-            <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.22em] text-stone-300/75">
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
+            <div className="flex flex-wrap gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-300/80 md:gap-3 md:text-xs md:tracking-[0.22em]">
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 md:px-4 md:py-2">
                 {narrativeProject.format}
               </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
-                {narrativeProject.status}
-              </span>
+              {narrativeProject.status ? (
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 md:px-4 md:py-2">
+                  {narrativeProject.status}
+                </span>
+              ) : null}
             </div>
-            <p className="max-w-4xl text-base leading-8 text-stone-200/82 md:text-lg">
+            <p className="hidden max-w-4xl text-base leading-8 text-stone-200/82 md:block md:text-lg">
               {narrativeProject.logline}
             </p>
           </div>

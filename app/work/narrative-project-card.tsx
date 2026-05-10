@@ -23,18 +23,20 @@ export function NarrativeProjectCard({ project }: NarrativeProjectCardProps) {
             <p className="eyebrow text-[11px] text-amber-200/80">
               Featured Narrative
             </p>
-            <h3 className="text-3xl font-semibold tracking-[-0.04em] text-stone-50 md:text-5xl">
+            <h3 className="font-saddlebag origin-left scale-y-120 text-4xl font-black tracking-normal text-[#ee00a5] md:text-6xl">
               {project.title}
             </h3>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-stone-300/72">
-            <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
+          <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-stone-300/72">
+            <span className="rounded-xl border border-white/10 bg-white/5 px-3 py-1.5">
               {project.format}
             </span>
-            <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
-              {project.status}
-            </span>
+            {project.status ? (
+              <span className="rounded-xl border border-white/10 bg-white/5 px-3 py-1.5">
+                {project.status}
+              </span>
+            ) : null}
           </div>
 
           <p className="max-w-3xl text-base leading-8 text-stone-100/90 md:text-lg">
@@ -42,7 +44,7 @@ export function NarrativeProjectCard({ project }: NarrativeProjectCardProps) {
           </p>
 
           <div className="pt-1">
-            <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-100/80">
+            <span className="inline-flex rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-stone-100/80">
               Open Full Project Page
             </span>
           </div>

@@ -44,7 +44,7 @@ export default async function NarrativeProjectPage({
           </nav>
         </MobileHeader>
 
-        <section className="pt-12 md:pt-14">
+        <section className="pt-10 md:pt-14">
           <div className="space-y-2 md:space-y-3">
             <p className="eyebrow text-xs text-amber-200/75">
               Narrative Project

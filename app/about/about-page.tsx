@@ -49,7 +49,7 @@ export function AboutPage() {
         <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-neutral-950/70 via-neutral-950/35 to-transparent" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-5xl flex-col justify-between gap-12">
+      <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-5xl flex-col justify-between gap-8 md:gap-12">
         <MobileHeader className="fixed inset-x-0 top-0 z-30 mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4 text-sm uppercase tracking-[0.3em] text-neutral-300/80 [text-shadow:0_2px_10px_rgba(0,0,0,0.52)] md:left-1/2 md:top-6 md:z-40 md:w-[calc(100%-5rem)] md:-translate-x-1/2 md:px-0 md:py-0">
           <p>About</p>
           <nav className="flex items-center gap-4 md:gap-6">
@@ -68,7 +68,7 @@ export function AboutPage() {
           </nav>
         </MobileHeader>
 
-        <section className="grid gap-8 pt-24 md:grid-cols-[1.65fr_1fr] md:items-end">
+        <section className="mt-16 grid gap-8 md:mt-0 md:grid-cols-[1.65fr_1fr] md:items-end md:pt-24">
           <div className="relative rounded-[2rem] border border-white/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.035)_0%,rgba(255,255,255,0.025)_18%,rgba(255,255,255,0.055)_100%)] p-4 shadow-[0_18px_45px_rgba(0,0,0,0.12)] backdrop-blur-[1px] md:p-6">
             <div className="pointer-events-none absolute inset-0 rounded-[2rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.015)_0%,rgba(255,255,255,0.005)_22%,transparent_38%)]" />
             <div className="relative space-y-2">
@@ -78,7 +78,7 @@ export function AboutPage() {
               <p className="relative eyebrow text-xs text-amber-200/78">
                 Profile
               </p>
-              <div className="relative max-w-2xl pt-2 text-base leading-8 text-neutral-200/90 md:text-lg">
+              <div className="relative max-w-2xl pt-2 text-[15px] leading-6 text-neutral-100/88 md:text-lg md:leading-8 md:text-neutral-200/90">
                 <div className="mb-4 h-px w-28 bg-[linear-gradient(90deg,rgba(255,255,255,0.38),rgba(255,255,255,0.14)_55%,transparent)] shadow-[0_1px_10px_rgba(255,255,255,0.08)]" />
                 <div className="space-y-4">
                   <p>
@@ -122,7 +122,7 @@ export function AboutPage() {
                   </p>
                   <a
                     href="mailto:dirbrar@gmail.com"
-                    className="mt-1 block text-base font-medium text-neutral-100 transition-colors hover:text-amber-200"
+                    className="mt-1 block text-sm font-medium text-neutral-100 transition-colors hover:text-amber-200 md:text-base"
                   >
                     dirbrar@gmail.com
                   </a>
@@ -134,7 +134,7 @@ export function AboutPage() {
                   </p>
                   <a
                     href="tel:6477058334"
-                    className="mt-1 block text-base font-medium text-neutral-100 transition-colors hover:text-amber-200"
+                    className="mt-1 block text-sm font-medium text-neutral-100 transition-colors hover:text-amber-200 md:text-base"
                   >
                     647 705 8334
                   </a>
@@ -157,7 +157,7 @@ export function AboutPage() {
                       <span className="block text-sm uppercase tracking-[0.22em] text-neutral-400">
                         Instagram
                       </span>
-                      <span className="block text-base font-medium">@damenrb</span>
+                      <span className="block text-sm font-medium md:text-base">@damenrb</span>
                     </span>
                   </a>
                 </div>
@@ -179,7 +179,7 @@ export function AboutPage() {
                       <span className="block text-sm uppercase tracking-[0.22em] text-neutral-400">
                         LinkedIn
                       </span>
-                      <span className="block text-base font-medium">Damen Brar</span>
+                      <span className="block text-sm font-medium md:text-base">Damen Brar</span>
                     </span>
                   </a>
                 </div>

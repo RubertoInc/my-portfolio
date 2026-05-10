@@ -39,7 +39,7 @@ export function NarrativeProjectCard({ project }: NarrativeProjectCardProps) {
             ) : null}
           </div>
 
-          <p className="max-w-3xl text-base leading-8 text-stone-100/90 md:text-lg">
+          <p className="max-w-3xl text-sm leading-6 text-stone-300/75 md:text-lg md:leading-8 md:text-stone-100/90">
             {project.logline}
           </p>
 

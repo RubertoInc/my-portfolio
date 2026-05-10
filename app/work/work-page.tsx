@@ -48,20 +48,31 @@ export function WorkPage() {
           </nav>
         </MobileHeader>
 
-        <section className="max-w-3xl space-y-2 pt-24 md:pt-14">
+        <section className="max-w-3xl space-y-2 rounded-2xl border border-white/10 bg-black/35 p-4 mt-16 shadow-[0_18px_45px_rgba(0,0,0,0.22)] backdrop-blur-sm md:mt-0 md:border-0 md:bg-transparent md:p-0 md:pt-14 md:shadow-none md:backdrop-blur-0">
           <h1 className="text-4xl font-semibold tracking-tight text-stone-50 md:text-6xl">
             Directing Work
           </h1>
           <p className="eyebrow text-xs text-amber-200/70">
             damen r. brar
           </p>
-          <p className="max-w-2xl text-base leading-8 text-stone-200/80 md:text-lg">
+          <p className="max-w-2xl text-sm leading-6 text-stone-300/75 md:text-lg md:leading-8 md:text-stone-200/80">
             Each project is a special collaboration of beautiful minds. 
             Scroll to see original work directed, produced, or written by me.
           </p>
+          <nav className="flex flex-wrap gap-2 pt-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-300/75 md:hidden">
+            {sectionLinks.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="rounded-xl border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.11),rgba(255,255,255,0.035))] px-3 py-2 text-stone-200/82 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.16),0_8px_18px_rgba(0,0,0,0.16)] transition-[background-color,border-color,color,box-shadow] duration-200 hover:border-white/18 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.05))] hover:text-stone-50"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
         </section>
 
-        <nav className="sticky top-20 z-20 -mt-2 flex flex-wrap gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-300/75 md:top-20 md:text-[11px]">
+        <nav className="sticky top-20 z-20 -mt-2 hidden flex-wrap gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-300/75 md:flex md:text-[11px]">
           {sectionLinks.map((item) => (
             <a
               key={item.href}
@@ -116,7 +127,7 @@ export function WorkPage() {
             <p className="eyebrow text-xs text-amber-200/70">
               Coming soon...
             </p>
-            <p className="text-base leading-8 text-stone-200/80 md:text-lg">
+            <p className="text-sm leading-6 text-stone-300/75 md:text-lg md:leading-8 md:text-stone-200/80">
               More to come. Give me a call, this could be your brand!
             </p>
           </div>

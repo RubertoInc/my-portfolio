@@ -3,6 +3,7 @@ export type NarrativeCastMember = {
   actorName: string;
   imdbUrl?: string;
   headshotSrc?: string;
+  headshotClassName?: string;
 };
 
 export type NarrativeCrewCredit = {
@@ -81,6 +82,7 @@ export const narrativeProjects: NarrativeProject[] = [
         actorName: "Kaden Connors",
         imdbUrl: "https://www.imdb.com/name/nm10423248/",
         headshotSrc: "/kaden-profile.png",
+        headshotClassName: "scale-110 object-cover object-[50%_18%]",
       },
     ],
     crew: [

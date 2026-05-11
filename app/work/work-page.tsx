@@ -55,7 +55,7 @@ export function WorkPage() {
           <p className="eyebrow text-xs text-amber-200/70">
             damen r. brar
           </p>
-          <p className="max-w-2xl text-sm leading-6 text-stone-300/75 md:text-lg md:leading-8 md:text-stone-200/80">
+          <p className="max-w-2xl text-[15px] leading-6 text-stone-100/88 md:text-lg md:leading-8 md:text-stone-200/80">
             Each project is a special collaboration of beautiful minds. 
             Scroll to see original work directed, produced, or written by me.
           </p>
@@ -127,7 +127,7 @@ export function WorkPage() {
             <p className="eyebrow text-xs text-amber-200/70">
               Coming soon...
             </p>
-            <p className="text-sm leading-6 text-stone-300/75 md:text-lg md:leading-8 md:text-stone-200/80">
+            <p className="text-[15px] leading-6 text-stone-100/88 md:text-lg md:leading-8 md:text-stone-200/80">
               More to come. Give me a call, this could be your brand!
             </p>
           </div>

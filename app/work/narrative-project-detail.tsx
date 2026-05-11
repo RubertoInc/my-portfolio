@@ -87,7 +87,7 @@ function SynopsisBlock({ project }: NarrativeProjectSectionProps) {
     <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.05] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.22)]">
       <div className="space-y-3">
         <p className="eyebrow text-[11px] text-amber-200/80">Synopsis</p>
-        <p className="max-w-3xl text-sm leading-6 text-stone-300/75 md:text-base md:leading-7 md:text-stone-200/82">
+        <p className="max-w-3xl text-[15px] leading-6 text-stone-100/88 md:text-base md:leading-7 md:text-stone-200/82">
           {project.synopsis}
         </p>
       </div>
@@ -101,8 +101,8 @@ function CastGallery({ project }: NarrativeProjectSectionProps) {
       <div className="flex items-center justify-between gap-4">
         <div className="space-y-1">
           <p className="eyebrow text-[11px] text-amber-200/80">Cast</p>
-          <p className="text-sm text-stone-300/75">
-            Starring Brennan Clost (Tiny Pretty Things), Cecilia Lee (Star Trek: Starfleet Academy), and Kaden Connors (Heated Rivalry)
+          <p className="text-[15px] leading-6 text-stone-100/88 md:text-sm md:text-stone-300/75">
+            Starring Cecilia Lee (Star Trek: Starfleet Academy), Brennan Clost (Tiny Pretty Things), and Kaden Connors (Heated Rivalry)
             Pegged is packed with some of Canada&apos;s most compelling young talents and Queer advocates are locked in one room, with nowhere to hide.
           </p>
         </div>
@@ -118,7 +118,7 @@ function CastGallery({ project }: NarrativeProjectSectionProps) {
                     src={member.headshotSrc}
                     alt={`${member.actorName} headshot`}
                     fill
-                    className="object-cover object-top"
+                    className={member.headshotClassName ?? "object-cover object-top"}
                     sizes="(min-width: 768px) 33vw, 100vw"
                   />
                 ) : (

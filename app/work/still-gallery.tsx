@@ -26,7 +26,7 @@ export function StillGallery({ galleryImages }: StillGalleryProps) {
           <p className="eyebrow text-[11px] text-amber-200/80">
             BTS / Gallery
           </p>
-          <p className="text-sm text-stone-300/75">
+          <p className="text-[15px] leading-6 text-stone-100/88 md:text-sm md:text-stone-300/75">
             Stills and behind-the-scenes frames from PEGGED.
           </p>
         </div>
